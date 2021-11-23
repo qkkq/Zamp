@@ -28,7 +28,7 @@ Interp4Command* CreateCmd(void)
 /*!
  *
  */
-Interp4Set::Interp4Set(): _Wsp_x(0), _Wsp_y(0), _Kat_Ox(0), _Kat_Oy(0), _Kat_Oz(0)
+Interp4Set::Interp4Set(): _Obj_Name("noname_set"), _Wsp_x(0), _Wsp_y(0), _Kat_Ox(0), _Kat_Oy(0), _Kat_Oz(0)
 {}
 
 

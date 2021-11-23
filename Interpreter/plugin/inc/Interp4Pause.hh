@@ -1,5 +1,5 @@
-#ifndef  COMMAND4SET_HH
-#define  COMMAND4SET_HH
+#ifndef  COMMAND4PAUSE_HH
+#define  COMMAND4PAUSE_HH
 
 #ifndef __GNUG__
 # pragma interface
@@ -8,11 +8,12 @@
 
 #include "Interp4Command.hh"
 #include <string>
+
 /*!
  * \file
- * \brief Definicja klasy Interp4SET
+ * \brief Definicja klasy Interp4PAUSE
  *
- * Plik zawiera definicję klasy Interp4Set ...
+ * Plik zawiera definicję klasy Interp4Pause ...
  */
 
 /*!
@@ -20,23 +21,20 @@
  *
  *  Klasa modeluje ustawienie wybranego obiektu w zadanym miejscu na scenie.
  */
-class Interp4Set: public Interp4Command {
+class Interp4Pause: public Interp4Command {
   /*
    *  Tu należy zdefiniować pola, które są niezbędne
    *  do przechowywania wartości parametrów danego polecenia.
    *  Ponieżej zdefiniowane jest tylko jedno pole jako przykład.
    */
   std::string _Obj_Name;
-  double  _Wsp_x;
-  double  _Wsp_y;
-  double  _Kat_Ox;
-  double  _Kat_Oy;
-  double  _Kat_Oz;
+  double  _Pause_time;
+
  public:
   /*!
    * \brief
    */
-  Interp4Set();  
+  Interp4Pause();  
   /*!
    * \brief Wyświetla postać bieżącego polecenia (nazwę oraz wartości parametrów)
    */

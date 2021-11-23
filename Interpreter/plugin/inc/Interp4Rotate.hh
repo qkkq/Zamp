@@ -1,5 +1,5 @@
-#ifndef  COMMAND4SET_HH
-#define  COMMAND4SET_HH
+#ifndef  COMMAND4ROTATE_HH
+#define  COMMAND4ROTATE_HH
 
 #ifndef __GNUG__
 # pragma interface
@@ -10,9 +10,9 @@
 #include <string>
 /*!
  * \file
- * \brief Definicja klasy Interp4SET
+ * \brief Definicja klasy Interp4Rotate
  *
- * Plik zawiera definicję klasy Interp4Set ...
+ * Plik zawiera definicję klasy Interp4Rotate ...
  */
 
 /*!
@@ -20,23 +20,21 @@
  *
  *  Klasa modeluje ustawienie wybranego obiektu w zadanym miejscu na scenie.
  */
-class Interp4Set: public Interp4Command {
+class Interp4Rotate: public Interp4Command {
   /*
    *  Tu należy zdefiniować pola, które są niezbędne
    *  do przechowywania wartości parametrów danego polecenia.
    *  Ponieżej zdefiniowane jest tylko jedno pole jako przykład.
    */
-  std::string _Obj_Name;
-  double  _Wsp_x;
-  double  _Wsp_y;
-  double  _Kat_Ox;
-  double  _Kat_Oy;
-  double  _Kat_Oz;
+  std::string  _Obj_Name;
+  double  _Angular_Velocity;
+  double  _Axis;
+  double  _Angle;
  public:
   /*!
    * \brief
    */
-  Interp4Set();  
+  Interp4Rotate();  
   /*!
    * \brief Wyświetla postać bieżącego polecenia (nazwę oraz wartości parametrów)
    */
