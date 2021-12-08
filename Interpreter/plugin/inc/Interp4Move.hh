@@ -7,18 +7,19 @@
 #endif
 
 #include "Interp4Command.hh"
-#include <string>
+
 /*!
  * \file
  * \brief Definicja klasy Interp4Move
  *
- * Plik zawiera definicję klasy Interp4Move ...
+ * Plik zawiera definicję klasy Interp4Move która odpowiada za poruszanie obiektem z na daną odległość z zadaną prędkością.
  */
 
 /*!
  * \brief Modeluje polecenie dla robota mobilnego, które wymusza jego ruch do przodu
  *
- *  Klasa modeluje ...
+ *  Klasa modeluje polecenie umozliwiające ruch do przodu z zadaną prędkością. 
+ * Dodatkowo definiujemy odległość do przejechania oraz nazwę.
  */
 class Interp4Move: public Interp4Command {
   /*
@@ -26,13 +27,12 @@ class Interp4Move: public Interp4Command {
    *  do przechowywania wartości parametrów danego polecenia.
    *  Ponieżej zdefiniowane jest tylko jedno pole jako przykład.
    */
-  std::string _Obj_Name;
-  double  _Speed_mmS;
-  double  _Lenght;
-  
+  double _Speed_mmS;//!< pole przechowujące prędkość
+  double _Lenght;//!< pole przechowujące długość drogi
+  std::string _Obj_Name;//!< pole przechowujące nazwę
  public:
   /*!
-   * \brief
+   * \brief Konstruktor klasy
    */
   Interp4Move();  
   /*!
@@ -50,7 +50,7 @@ class Interp4Move: public Interp4Command {
   /*!
    * \brief Wykonuje polecenie oraz wizualizuje jego realizację
    */
-  virtual bool ExecCmd( MobileObj  *pMobObj, int Socket) const;
+  virtual bool ExecCmd( MobileObj  *pMobObj, AccessControl *pAccessCtrl) const;
   /*!
    * \brief Czyta wartości parametrów danego polecenia
    */

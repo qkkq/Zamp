@@ -1,6 +1,24 @@
+#define MACRO 50
+#define MACRO2 100
+#define MACRO3 200
+
+ 
+
 Begin_Parallel_Actions
-Set Shape1 2 2 10 15 20
-Set Shape2 3 3 15 20 25
-Move Shape1 10 5
-Move Shape2 5 10
+Rotate Podstawa 5 Z 180  
+Rotate Podstawa.Ramie1 2 Y 20  
+End_Parallel_Actions
+
+Begin_Parallel_Actions
+Rotate Podstawa.Ramie1.Ramie2 2 Z 45  
+Rotate Podstawa.Ramie1 2 Y 20  
+End_Parallel_Actions
+
+Begin_Parallel_Actions
+Rotate Kadlub.przod.piasta.prop 50 Y 2000 
+End_Parallel_Actions
+
+Begin_Parallel_Actions
+Rotate Kadlub.przod.piasta.prop 120 Y 6000
+Move Kadlub 0.2  10
 End_Parallel_Actions

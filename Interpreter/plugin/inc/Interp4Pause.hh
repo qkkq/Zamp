@@ -7,28 +7,24 @@
 #endif
 
 #include "Interp4Command.hh"
-#include <string>
 
 /*!
  * \file
- * \brief Definicja klasy Interp4PAUSE
+ * \brief Definicja klasy Interp4Pause
  *
  * Plik zawiera definicję klasy Interp4Pause ...
  */
 
 /*!
- * \brief Modeluje polecenie dla robota mobilnego, które wymusza jego ustawienie w pozycji
+ * \brief Modeluje polecenie dla robota mobilnego, które wymusza jego ruch do przodu
  *
- *  Klasa modeluje ustawienie wybranego obiektu w zadanym miejscu na scenie.
+ *  Klasa modeluje zatrzymanie w pozycji.
  */
 class Interp4Pause: public Interp4Command {
-  /*
-   *  Tu należy zdefiniować pola, które są niezbędne
-   *  do przechowywania wartości parametrów danego polecenia.
-   *  Ponieżej zdefiniowane jest tylko jedno pole jako przykład.
-   */
-  std::string _Obj_Name;
-  double  _Pause_time;
+
+private:
+   int _Pause_time;
+
 
  public:
   /*!
@@ -50,7 +46,8 @@ class Interp4Pause: public Interp4Command {
   /*!
    * \brief Wykonuje polecenie oraz wizualizuje jego realizację
    */
-  virtual bool ExecCmd( MobileObj  *pMobObj, int Socket) const;
+  virtual bool ExecCmd( MobileObj  *pMobObj, AccessControl *pAccessCtrl) const;
+
   /*!
    * \brief Czyta wartości parametrów danego polecenia
    */

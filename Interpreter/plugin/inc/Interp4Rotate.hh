@@ -7,7 +7,8 @@
 #endif
 
 #include "Interp4Command.hh"
-#include <string>
+#include "AccessControl.hh"
+
 /*!
  * \file
  * \brief Definicja klasy Interp4Rotate
@@ -16,9 +17,9 @@
  */
 
 /*!
- * \brief Modeluje polecenie dla robota mobilnego, które wymusza jego ustawienie w pozycji
+ * \brief Modeluje polecenie dla robota mobilnego, które wymusza jego ruch obrotowy
  *
- *  Klasa modeluje ustawienie wybranego obiektu w zadanym miejscu na scenie.
+ *  Klasa modeluje ...
  */
 class Interp4Rotate: public Interp4Command {
   /*
@@ -26,10 +27,12 @@ class Interp4Rotate: public Interp4Command {
    *  do przechowywania wartości parametrów danego polecenia.
    *  Ponieżej zdefiniowane jest tylko jedno pole jako przykład.
    */
-  std::string  _Obj_Name;
-  double  _Angular_Velocity;
-  double  _Axis;
-  double  _Angle;
+  double  _Angular_Velocity;//!< pole przechowujące szybkość kątową w deg/s
+  //double  _Axis; //!<pole przechowujące numer si obrotu
+  double  _Angle; //!< pole przechowujące kąt obrotu w deg
+  std::string _Axis_Name;//!<pole przechowujące nazwę osi obrotu
+  std::string _Obj_Name;//!<pole przechowujące nazwę obiektu
+
  public:
   /*!
    * \brief
@@ -50,7 +53,7 @@ class Interp4Rotate: public Interp4Command {
   /*!
    * \brief Wykonuje polecenie oraz wizualizuje jego realizację
    */
-  virtual bool ExecCmd( MobileObj  *pMobObj, int Socket) const;
+  virtual bool ExecCmd( MobileObj  *pMobObj, AccessControl *pAccessCtrl) const;
   /*!
    * \brief Czyta wartości parametrów danego polecenia
    */

@@ -1,5 +1,5 @@
-#ifndef  COMMAND4SET_HH
-#define  COMMAND4SET_HH
+#ifndef  COMMAND4ROTATE_HH
+#define  COMMAND4ROTATE_HH
 
 #ifndef __GNUG__
 # pragma interface
@@ -7,31 +7,31 @@
 #endif
 
 #include "Interp4Command.hh"
-#include <string>
+
 /*!
  * \file
- * \brief Definicja klasy Interp4SET
+ * \brief Definicja klasy Interp4Set
  *
  * Plik zawiera definicję klasy Interp4Set ...
  */
 
 /*!
- * \brief Modeluje polecenie dla robota mobilnego, które wymusza jego ustawienie w pozycji
+ * \brief Modeluje polecenie dla robota mobilnego, które wymusza jego ruch do przodu
  *
  *  Klasa modeluje ustawienie wybranego obiektu w zadanym miejscu na scenie.
  */
 class Interp4Set: public Interp4Command {
-  /*
-   *  Tu należy zdefiniować pola, które są niezbędne
-   *  do przechowywania wartości parametrów danego polecenia.
-   *  Ponieżej zdefiniowane jest tylko jedno pole jako przykład.
-   */
-  std::string _Obj_Name;
+
+private:
+
   double  _Wsp_x;
   double  _Wsp_y;
   double  _Kat_Ox;
   double  _Kat_Oy;
   double  _Kat_Oz;
+  std::string _Obj_Name;
+
+
  public:
   /*!
    * \brief
@@ -52,7 +52,7 @@ class Interp4Set: public Interp4Command {
   /*!
    * \brief Wykonuje polecenie oraz wizualizuje jego realizację
    */
-  virtual bool ExecCmd( MobileObj  *pMobObj, int Socket) const;
+  virtual bool ExecCmd( MobileObj  *pMobObj, AccessControl *pAccessCtrl) const;
   /*!
    * \brief Czyta wartości parametrów danego polecenia
    */

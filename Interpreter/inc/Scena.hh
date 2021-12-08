@@ -1,35 +1,68 @@
-#ifndef SCENA_HH
-#define SCENA_HH
+#pragma once
 
+#include "MobileObj.hh"
 
 #include <string>
-#include "Vector3D.hh"
-#include "MobileObj.hh"
+
+#include <map>
+
+#include <vector>
+
+#include "AccessControl.hh"
 
 /*!
  * \file
- * \brief Zawiera definicję klasy Scena
+ * \brief Definicja klasy Scene.
  *
- * Plik zawiera definicję klasy Scena.
- * Definicja to może być rozszerzona i zmienione mogą
- * być nazwy pól. Obowiązkowe są jedynie nazwy metod.
+ * Plik zawiera definicję klasy Scene, przechowującej listę obiektów mobilnych w postaci struktury map.
  */
 
+class Scena: public AccessControl {
+  private:
+    /*!
+     * \brief Mapa wskaźników na obiekty klasy MobileObj
+     */
+    std::map < std::string,
+  MobileObj * > _Object_List;
+  public:
+    /*!
+     * \brief Konstruktor klasy
+     */
+    Scena();
+  /*!
+   * \brief Konstruktor klasy
+   */
+  Scena(std::map < std::string, MobileObj * > & List);
+  /*!
+   * \brief Destruktor klasy
+   */
+  ~Scena() {
+    _Object_List.clear();
+  };
+  /*!
+   * \brief Wyszukuje i zwraca wskaźnik na obiekt o nazwie podanej w parametrze
+   *
+   * \param[in] sName - nazwa obiektu mobilnego do wyszukania na scenie
+   * \return Zwraca wskaźnik na znaleziony obiekt lub nullptr, gdy obiekt nie zostanie znaleziony
+   */
+  MobileObj * FindMobileObj(std::string sName);
 
+  /*!
+   * \brief Dodaje obiekt o padanej nazwie do listy obiektów
+   *
+   * \param[in] sName - nazwa obiektu mobilnego do dodania do sceny
+   */
+  void AddMobileObj(std::string sName);
+  /*!
+   * \brief zwraca  na liste obiektów
+   *
+   *
+   * \return Pole _Object_List klasy Scena
+   */
+  std::map < std::string,
+  MobileObj * > getObjList() {
+    return this -> _Object_List;
+  }
+  std::vector < MobileObj * > getObjects();
 
-
-   /*!
-    * Nazwy pól klasy są jedynie propozycją i mogą być zmienione
-    * Nazwy metod są obowiązujące.
-    */
-    class Scena {
-
-     public:
-      /*!
-       * \brief Udostępia wartość kąta \e roll.
-       *
-       * Udostępia wartość kąta \e roll. Jest ona wyrażona w stopniach.
-       */
-	MobileObj* FindMobileObj(const char *sName);
-	void AddMobileObj(MobileObj *pMobObj);
-#endif
+};
