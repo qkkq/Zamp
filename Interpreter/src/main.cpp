@@ -37,7 +37,7 @@ int main() {
   int Socket4Sending;
 
   if (false == ReadFile("config/config.xml", config)) {
-    std::cerr << "!!! Błąd odczytu config.xml" << std::endl;
+    std::cerr << "!!! Błąd podczas odczytu config.xml" << std::endl;
     return 1;
   }
 
